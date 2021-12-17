@@ -13,10 +13,8 @@ import java.util.List;
 public class EmployeePayrollServices implements IEmployeePayrollService{
 
     private List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
-
     @Autowired
     EmployeeRepository employeeRepository;
-
 
     @Override
     public List<EmployeePayrollData> getEmployeePayrollData() {
