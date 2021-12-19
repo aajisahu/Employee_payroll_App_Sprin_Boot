@@ -36,7 +36,6 @@ public class EmployeePayrollExceptionHandler {
         ResponseDTO responseDTO = new ResponseDTO(message, errMesg);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
     }
-
     @ExceptionHandler(EmployeePayrollException.class)
     public ResponseEntity<ResponseDTO> handleEmployeePayrollException(
             EmployeePayrollException exception) {
