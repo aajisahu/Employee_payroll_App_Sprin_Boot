@@ -13,11 +13,9 @@ import java.util.List;
 public class EmployeePayrollServices implements IEmployeePayrollService{
 
     private List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
-    @Autowired
-    EmployeeRepository employeeRepository;
-
     @Override
     public List<EmployeePayrollData> getEmployeePayrollData() {
+
         return employeePayrollList;
     }
 
@@ -28,14 +26,9 @@ public class EmployeePayrollServices implements IEmployeePayrollService{
 
     @Override
     public EmployeePayrollData createEmployeePayrollData(EmployeePayrollDTO empPayrollDTO) {
-        EmployeePayrollData empData = null;
-        EmployeePayrollData employeePayrollData= new EmployeePayrollData();
-        employeePayrollData.setEmployeeId(empPayrollDTO.getEmployeeId());
-        employeePayrollData.setName(empPayrollDTO.getName());
-        employeePayrollData.setSalary(empPayrollDTO.getSalary());
-        employeePayrollList.add(employeePayrollData);
-        employeeRepository.save(employeePayrollData);
-        return employeePayrollData;
+        EmployeePayrollData empData = new EmployeePayrollData(employeePayrollList.size()+1,empPayrollDTO);
+        employeePayrollList.add(empData);
+        return empData;
     }
 
     @Override
