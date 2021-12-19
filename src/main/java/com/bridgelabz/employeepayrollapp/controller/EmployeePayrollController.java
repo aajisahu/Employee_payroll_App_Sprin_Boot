@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/employeePayrollservice")
 @Slf4j
@@ -29,7 +28,6 @@ public class EmployeePayrollController {
         ResponseDTO respDTO = new ResponseDTO("Get Call Success", empDataList);
         return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
     }
-
 
     @GetMapping("/get/{empId}")
     public ResponseEntity<ResponseDTO> getEmployeePayrollData(@PathVariable("empId") int empId) {
@@ -49,7 +47,7 @@ public class EmployeePayrollController {
 
     @PutMapping("/update/{empId}")
     public ResponseEntity<ResponseDTO> updateEmployeePayrollData(@PathVariable("empId") int empId, @Valid @RequestBody EmployeePayrollDTO empPayrollDTO) {
-        EmployeePayrollData empData  = employeePayrollService.updateEmployeePayrollData(empId, empPayrollDTO);
+        EmployeePayrollData empData = employeePayrollService.updateEmployeePayrollData(empId, empPayrollDTO);
         ResponseDTO respDTO = new ResponseDTO("Update Employee PayrollData Successful:", empData);
         return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 
