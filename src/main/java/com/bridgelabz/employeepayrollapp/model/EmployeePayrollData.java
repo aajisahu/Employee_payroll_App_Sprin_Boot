@@ -1,6 +1,7 @@
 package com.bridgelabz.employeepayrollapp.model;
 
 import com.bridgelabz.employeepayrollapp.dto.EmployeePayrollDTO;
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+@Data
 @Table(name = "employee")
 public class EmployeePayrollData {
     @Id
@@ -24,32 +26,7 @@ public class EmployeePayrollData {
         this.name = name;
         this.salary = salary;
     }
+    public EmployeePayrollData() {}
+    public EmployeePayrollData(int employeeId, EmployeePayrollDTO empPayrollDTO) {}
 
-    public EmployeePayrollData(int employeeId, EmployeePayrollDTO empPayrollDTO) {
-
-    }
-
-    public EmployeePayrollData() {
-
-    }
-
-
-    public int getEmployeeId() {
-        return employeeId;
-    }
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public long getSalary() {
-        return salary;
-    }
-    public void setSalary(long salary) {
-        this.salary = salary;
-    }
 }

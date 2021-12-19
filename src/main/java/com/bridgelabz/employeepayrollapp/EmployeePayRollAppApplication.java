@@ -16,9 +16,6 @@ public class EmployeePayRollAppApplication {
                 context.getEnvironment().getProperty("environment"));
         log.info("Employee Payroll DB User is {}",
                 context.getEnvironment().getProperty("spring.datasource.username"));
-        log.info("Test message of Slf4j");
-
-
     }
 
 }
