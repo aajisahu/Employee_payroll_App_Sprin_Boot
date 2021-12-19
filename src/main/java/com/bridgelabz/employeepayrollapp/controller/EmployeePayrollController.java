@@ -60,3 +60,19 @@ public class EmployeePayrollController {
         return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
     }
 }
+
+
+
+/**
+{
+    "name": "Mark Taylor",
+    "gender": "M",
+    "department":["HR","Sales"],
+     "salary": "200", 
+     "startDate": "29 Dec 2020",
+     "note": "All In One",
+     "profilePic": "../assets/profile-images/Ellipse -3.png"
+     
+}
+
+*/
