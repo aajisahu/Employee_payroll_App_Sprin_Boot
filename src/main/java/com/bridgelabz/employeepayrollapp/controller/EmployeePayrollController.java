@@ -17,12 +17,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/employeePayrollservice")
 @Slf4j
+@CrossOrigin(origins = "*")
 public class EmployeePayrollController {
 
     @Autowired
     private IEmployeePayrollService employeePayrollService;
 
-    @GetMapping(value = {"", "/", "/get"})
+    @GetMapping("/get")
     public ResponseEntity<ResponseDTO> getEmployeePayrollData() {
         List<EmployeePayrollData> empDataList = employeePayrollService.getEmployeePayrollData();
         ResponseDTO respDTO = new ResponseDTO("Get Call Success", empDataList);
