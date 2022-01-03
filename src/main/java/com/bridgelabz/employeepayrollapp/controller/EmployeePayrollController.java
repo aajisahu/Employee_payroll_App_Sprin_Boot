@@ -17,17 +17,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/employeePayrollservice")
 @Slf4j
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class EmployeePayrollController {
 
     @Autowired
     private IEmployeePayrollService employeePayrollService;
 
-    @GetMapping("/get")
-    public ResponseEntity<ResponseDTO> getEmployeePayrollData() {
+    @GetMapping(value = "/get",produces = "application/json" )
+    public ResponseDTO getEmployeePayrollData() {
         List<EmployeePayrollData> empDataList = employeePayrollService.getEmployeePayrollData();
         ResponseDTO respDTO = new ResponseDTO("Get Call Success", empDataList);
-        return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
+        return respDTO;
+//        return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
     }
 
     @GetMapping("/get/{empId}")
